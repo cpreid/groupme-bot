@@ -24,7 +24,7 @@ const getChat = () => {
   })
 }
 
-const sendBad = (sharedBy='') => {  
+const sendBigMessage = (sharedBy='') => {  
   const warning = `--- ${process.env.HEADINGS} ---
   --- ${process.env.HEADINGS} ---
   --- ${process.env.HEADINGS} ---
@@ -59,7 +59,7 @@ const sendBad = (sharedBy='') => {
   const thisMessage = (resp.data.response.messages || []).shift()  
   if(thisMessage.id !== lastMessage.id) {
     if(thisMessage.text.includes('https://vm.tiktok.com')) {
-      sendBad(thisMessage.name)
+      sendBigMessage(thisMessage.name)
     }
     lastMessage = thisMessage
   }
