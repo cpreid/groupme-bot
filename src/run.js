@@ -58,7 +58,7 @@ const sendBigMessage = (sharedBy='') => {
   let resp = await getChat()
   const thisMessage = (resp.data.response.messages || []).shift()  
   if(thisMessage.id !== lastMessage.id) {
-    if(thisMessage.text.includes('https://vm.tiktok.com')) {
+    if(thisMessage && thisMessage.text && thisMessage.text.includes('https://vm.tiktok.com')) {
       sendBigMessage(thisMessage.name)
     }
     lastMessage = thisMessage
